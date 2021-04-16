@@ -26,7 +26,7 @@ function Chat() {
           </HeaderRight>
         </Header>
         <ChatMessages></ChatMessages>
-        {/* <ChatInput channelName={} channelId={roomId} /> */}
+        <ChatInput channelName={"Coding"} channelId={roomId} />
       </>
     </ChatContainer>
   );
