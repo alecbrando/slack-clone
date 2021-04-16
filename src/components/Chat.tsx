@@ -2,23 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import { useSelector } from "react-redux";
+import { selectRoomId } from "../features/appSlice";
+import ChatInput from "./ChatInput";
+
 function Chat() {
+  const roomId = useSelector(selectRoomId);
   return (
     <ChatContainer>
-      <Header>
-        <HeaderLeft>
-          <h4>
-            <strong>#Room-name</strong>
-          </h4>
-          <StarOutlineIcon />
-        </HeaderLeft>
-        <HeaderRight>
-          <p>
-            <InfoOutlinedIcon />
-            Details
-          </p>
-        </HeaderRight>
-      </Header>
+      <>
+        <Header>
+          <HeaderLeft>
+            <h4>
+              <strong>#Room-name</strong>
+            </h4>
+            <StarOutlineIcon />
+          </HeaderLeft>
+          <HeaderRight>
+            <p>
+              <InfoOutlinedIcon />
+              Details
+            </p>
+          </HeaderRight>
+        </Header>
+        <ChatMessages></ChatMessages>
+        {/* <ChatInput channelName={} channelId={roomId} /> */}
+      </>
     </ChatContainer>
   );
 }
@@ -31,6 +40,8 @@ const ChatContainer = styled.div`
   overflow-y: scroll;
   margin-top: 60px;
 `;
+
+const ChatMessages = styled.div``;
 
 const Header = styled.div`
   display: flex;
