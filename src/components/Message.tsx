@@ -9,7 +9,6 @@ export type MessagePropTypes = {
 };
 
 function Message({ message, timestamp, user, userImage }: MessagePropTypes) {
-  console.log(user);
   return (
     <MessageContainer>
       <img src={userImage} alt="" />
@@ -28,5 +27,21 @@ function Message({ message, timestamp, user, userImage }: MessagePropTypes) {
 
 export default Message;
 
-const MessageContainer = styled.div``;
-const MessageInfo = styled.div``;
+const MessageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  > img {
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 10px;
+  }
+`;
+const MessageInfo = styled.div`
+  > h4 > span {
+    color: gray;
+    font-weight: 300;
+    margin-left: 4px;
+    font-size: 10px;
+  }
+`;

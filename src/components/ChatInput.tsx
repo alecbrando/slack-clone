@@ -6,9 +6,10 @@ import firebase from "firebase";
 export type ChatInputPropTypes = {
   channelName: string;
   channelId: string;
+  chatRef: any;
 };
 
-function ChatInput({ channelName, channelId }: ChatInputPropTypes) {
+function ChatInput({ channelName, channelId, chatRef }: ChatInputPropTypes) {
   const [message, setMessage] = useState("");
   const sendMessage = (e: any) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ function ChatInput({ channelName, channelId }: ChatInputPropTypes) {
       userImage:
         "https://scontent.fphx1-2.fna.fbcdn.net/v/t1.6435-9/117339497_3581000808587429_4367855100768334768_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=FKBPK_zkJfMAX8mpQue&_nc_ht=scontent.fphx1-2.fna&oh=73127c4cc8c5a663e7d385fcc4b77fe5&oe=609DDEC7",
     });
+    chatRef.current.scrollIntoView();
     setMessage("");
   };
   return (
