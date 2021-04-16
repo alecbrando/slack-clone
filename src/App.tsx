@@ -5,15 +5,20 @@ import Header from "./components/Header";
 import styled from "styled-components";
 import Sidebar from "./components/Sidebar";
 import Chat from "./components/Chat";
+import { auth } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Login from "./components/Login";
 
 function App() {
+  const [user, loading] = useAuthState(auth);
+  console.log(user);
   return (
     <div className="App">
       <Router>
-        <>
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-          <Switch>
+        {!user ? (
+          <Login />
+        ) : (
+          <>
             <Route path="/" exact>
               <Header />
               <AppBody>
@@ -25,8 +30,8 @@ function App() {
                 </Switch>
               </AppBody>
             </Route>
-          </Switch>
-        </>
+          </>
+        )}
       </Router>
     </div>
   );

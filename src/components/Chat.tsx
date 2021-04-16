@@ -31,6 +31,10 @@ function Chat() {
     });
   }, [roomId, loading]);
 
+  if (!roomDetails) {
+    return null;
+  }
+
   return (
     <ChatContainer>
       <>
